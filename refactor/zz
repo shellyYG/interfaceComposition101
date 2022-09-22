@@ -1,0 +1,73 @@
+// package refactor
+
+// import "fmt"
+
+// type ObjectRequester struct { // Cache
+// 	object Object // EvictionAlgo
+// }
+
+// type Object interface {
+// 	ToHTTPRequest(objReq *ObjectRequester) (string) // evict()
+// }
+
+// type InboundMaster1 struct { // Fifo
+// 	MAWB string
+// 	weight string
+// }
+
+// var im1 = InboundMaster1{
+// 	MAWB: "MAWB_1",
+// 	weight: "20",
+// }
+
+// func (o *InboundMaster1) ToHTTPRequest(objReq *ObjectRequester) (string) { 
+// 	var req string = "IM1"
+// 	fmt.Println(req)
+// 	return req
+// }
+
+// type InboundMaster2 struct {
+// 	MAWB string
+// 	weight string
+// }
+
+// var im2 = InboundMaster2{
+// 	MAWB: "MAWB_2",
+// 	weight: "20",
+// }
+
+// func (o *InboundMaster2) ToHTTPRequest(objReq *ObjectRequester) (string) {
+// 	var req string = "IM2"
+// 	fmt.Println(req)
+// 	return req
+// }
+
+// func (objReq *ObjectRequester) SetToHTTPRequest(o Object) { // add & setEvictionAlgo
+// 	objReq.object = o
+// }
+
+// func (objReq *ObjectRequester) ToHTTPRequest() { // func (c *Cache) evict() {}
+// 	objReq.object.ToHTTPRequest(objReq)
+// }
+
+// func initObjReqr(o Object) *ObjectRequester {
+// 	return &ObjectRequester {
+// 		object: o,
+// 	}
+// }
+
+// func (objReq *ObjectRequester) callToHTTPRequest() { // add()
+// 	objReq.ToHTTPRequest()
+// }
+
+
+// func Run() {
+// 	im1 := &InboundMaster1{}
+// 	objReqr1 := initObjReqr(im1)
+// 	objReqr1.callToHTTPRequest()
+
+// 	im2 := &InboundMaster2{}
+// 	objReqr2 := initObjReqr(im2)
+// 	objReqr2.callToHTTPRequest()
+
+// }
